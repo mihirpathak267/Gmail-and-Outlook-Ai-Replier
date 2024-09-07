@@ -1,0 +1,18 @@
+{
+  "name": "gmail-and-outlook-ai-replier",
+  "version": "1.0.0",
+  "description": "Assignment for Reachinbox",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "passport": "^0.7.0",
+    "passport-google-oauth20": "^2.0.0",
+    "passport-outlook": "^3.0.0"
+  }
+}
