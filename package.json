@@ -9,8 +9,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "express-session": "^1.18.0",
+    "googleapis": "^144.0.0",
+    "openai": "^4.58.1",
     "passport": "^0.7.0",
     "passport-google-oauth20": "^2.0.0",
     "passport-outlook": "^3.0.0"
