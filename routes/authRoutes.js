@@ -20,7 +20,7 @@ router.get('/gmail', passport.authenticate('google', {
 
 router.get('/google/auto-replier', passport.authenticate('google', { failureRedirect: '/' }), (req, res) => {
     
-    scheduleEmailProcessing('gmail');
+    
     res.redirect('/process-emails/process-gmails');
 });
 
@@ -45,7 +45,7 @@ router.get('/outlook/mailreplier', async (req, res) => {
     });
     const tokenData = await tokenResponse.json();
     req.session.accessToken = tokenData.access_token;
-    scheduleEmailProcessing('outlook');
+    
     res.redirect('/process-emails/process-outlook');
 });
 

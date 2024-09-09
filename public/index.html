@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Client Selection</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            height: 100%;
+        }
+        .half {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+        .half:hover {
+            opacity: 0.8;
+        }
+        .gmail {
+            background-color: #34A853;
+        }
+        .outlook {
+            background-color: #D44638;
+        }
+        .icon {
+            width: 100px;
+            height: 100px;
+        }
+        .label {
+            position: absolute;
+            bottom: 20px;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/auth/gmail" class="half gmail">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <span class="label">Gmail</span>
+        </a>
+        <a href="/auth/outlook" class="half outlook">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M19 4c-.85 0-1.71.21-2.5.63L12 7.5 7.5 4.63a5.003 5.003 0 0 0-7 4.61v6.78c.03.82.24 1.61.63 2.33a4.96 4.96 0 0 0 6.37 2.31L12 17.5l4.5 3.05a5.004 5.004 0 0 0 6.37-2.31c.39-.72.6-1.51.63-2.33V9.24A5.003 5.003 0 0 0 19 4zm-7 5.5 4.5-3.05V17.5L12 14.5zm-5 3.05V6.45L12 9.5v8.05l-5 3.05z" />
+            </svg>
+            <span class="label">Outlook</span>
+        </a>
+    </div>
+</body>
+</html>

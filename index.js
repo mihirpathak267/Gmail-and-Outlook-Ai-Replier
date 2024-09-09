@@ -36,3 +36,9 @@ passport.use(new GoogleStrategy({
 
 passport.serializeUser((user, done) => done(null, user));
 passport.deserializeUser((obj, done) => done(null, obj));
+
+app.use('/auth', authRoutes);
+
+app.get('/', (req, res)=>{
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+})
