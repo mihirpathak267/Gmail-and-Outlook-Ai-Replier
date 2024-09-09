@@ -3,7 +3,7 @@ const router = express.Router();
 const passport = require('passport');
 const { OUTLOOK_AUTHORIZE_URL, OUTLOOK_TOKEN_URL, REDIRECT_URI } = require('../config/outlookConfig');
 const oauth2Client = require('../config/gmailConfig');
-const { scheduleEmailProcessing } = require('../jobs/emailProcessor');
+
 
 const SCOPES = [
     'openid',

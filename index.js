@@ -2,6 +2,9 @@ const express = require('express');
 const session = require('express-session');
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const authRoutes = require('./routes/authRoutes');
+const emailRoutes = require('./routes/emailRoutes');
+const oauth2Client = require('./config/gmailConfig');
 
 
 const path = require('path');
