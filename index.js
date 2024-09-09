@@ -1,26 +1,38 @@
-require('dotenv').config();
 const express = require('express');
-const passport = require('passport');
 const session = require('express-session');
-const { Strategy: GoogleStrategy } = require('passport-google-oauth20');
-const { google } = require('googleapis');
-const OpenAI = require('openai');
+const passport = require('passport');
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
 
-// Initialize Express
+
+const path = require('path');
+
+
+
 const app = express();
+app.use(express.static(path.join(__dirname, 'public')));
 
-// Middleware for session
+
 app.use(session({
-  secret: process.env.SESSION_SECRET || 'your_session_secret',
-  resave: false,
-  saveUninitialized: true,
+    secret: process.env.SESSION_SECRET || 'your_session_secret',
+    resave: false,
+    saveUninitialized: true,
 }));
-
 
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Passport serialize and deserialize
+passport.use(new GoogleStrategy({
+    clientID: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    callbackURL: '/auth/google/auto-replier'
+}, (accessToken, refreshToken, profile, done) => {
+    oauth2Client.setCredentials({
+        access_token: accessToken,
+        refresh_token: refreshToken,
+    });
+    profile.accessToken = accessToken;
+    return done(null, profile);
+}));
+
 passport.serializeUser((user, done) => done(null, user));
 passport.deserializeUser((obj, done) => done(null, obj));
-
