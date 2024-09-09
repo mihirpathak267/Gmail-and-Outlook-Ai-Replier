@@ -38,7 +38,15 @@ passport.serializeUser((user, done) => done(null, user));
 passport.deserializeUser((obj, done) => done(null, obj));
 
 app.use('/auth', authRoutes);
+app.use('/process-emails', emailRoutes);
 
 app.get('/', (req, res)=>{
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 })
+
+// Start the server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server started on http://localhost:${PORT}`);
+});
+
